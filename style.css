@@ -8,15 +8,16 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 15px;
 }
 
-/* Хедер */
+/* 🔥 УЛУЧШЕННЫЙ ХЕДЕР ДЛЯ МОБИЛЬНЫХ */
 .header {
     background: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -24,54 +25,92 @@ body {
     width: 100%;
     top: 0;
     z-index: 1000;
+    padding: 10px 0;
 }
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: #2C5530;
+    margin-bottom: 5px;
 }
 
 .nav {
-    display: flex;
-    gap: 2rem;
+    display: none; /* Скрываем навигацию на мобильных */
 }
 
-.nav-link {
+/* 🔥 МОБИЛЬНОЕ МЕНЮ */
+.mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    padding: 60px 20px 20px;
+}
+
+.mobile-nav.active {
+    left: 0;
+}
+
+.mobile-nav-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 15px 0;
     text-decoration: none;
     color: #333;
     font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav-link:hover {
-    color: #2C5530;
+    border-bottom: 1px solid #eee;
+    font-size: 1.1rem;
 }
 
 .phone-link {
     text-decoration: none;
     color: #2C5530;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
-/* Герой секция */
+/* 🔥 УЛУЧШЕННАЯ ГЕРОЙ СЕКЦИЯ ДЛЯ МОБИЛЬНЫХ */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080/4A6572/FFFFFF?text=Панорамный+вид+с+12+этажа');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080/4A6572/FFFFFF?text=Панорамный+вид+с+6+этажа');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 80px;
+    margin-top: 70px;
 }
 
 .hero-content {
@@ -79,30 +118,33 @@ body {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 15px;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 1rem;
     opacity: 0.9;
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
     opacity: 0.8;
+    line-height: 1.5;
 }
 
 .hero-features {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
@@ -110,7 +152,8 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    justify-content: center;
 }
 
 .cta-button {
@@ -119,44 +162,55 @@ body {
     border: none;
     padding: 1rem 2rem;
     font-size: 1.1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s;
+    width: 100%;
+    max-width: 300px;
+    font-weight: 600;
 }
 
 .cta-button:hover {
     background: #1e3a23;
 }
 
-/* Секции */
+/* 🔥 СЕКЦИИ ДЛЯ МОБИЛЬНЫХ */
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
     color: #2C5530;
+    padding: 0 10px;
 }
 
 .about {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: #f8f9fa;
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 }
 
 .details-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    margin-top: 2rem;
+    margin: 1.5rem 0;
 }
 
 .detail {
-    padding: 0.5rem 0;
+    padding: 0.8rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .about-image img {
@@ -165,15 +219,15 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Галерея */
+/* 🔥 ГАЛЕРЕЯ ДЛЯ МОБИЛЬНЫХ */
 .gallery {
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 }
 
 .gallery-item img {
@@ -184,25 +238,29 @@ body {
     transition: transform 0.3s;
 }
 
-.gallery-item img:hover {
-    transform: scale(1.05);
-}
-
-/* Удобства */
+/* 🔥 УДОБСТВА ДЛЯ МОБИЛЬНЫХ */
 .amenities {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: #f8f9fa;
 }
 
 .amenities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.amenity-category {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .amenity-category h3 {
     margin-bottom: 1rem;
     color: #2C5530;
+    font-size: 1.2rem;
 }
 
 .amenity-category ul {
@@ -210,27 +268,34 @@ body {
 }
 
 .amenity-category li {
-    padding: 0.3rem 0;
+    padding: 0.5rem 0;
     border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
 }
 
-/* Расположение */
+/* 🔥 РАСПОЛОЖЕНИЕ ДЛЯ МОБИЛЬНЫХ */
 .location {
-    padding: 5rem 0;
+    padding: 3rem 0;
 }
 
 .location-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .location-features {
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
 }
 
 .location-feature {
-    padding: 0.5rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .map-placeholder {
@@ -241,42 +306,55 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
 }
 
-/* Контакты */
+/* 🔥 КОНТАКТЫ ДЛЯ МОБИЛЬНЫХ */
 .contact {
-    padding: 5rem 0;
+    padding: 3rem 0;
     background: #f8f9fa;
 }
 
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .contact-item {
     margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
 }
 
-.price {
-    color: #2C5530;
-    font-size: 1.2rem;
-    font-weight: 600;
+.contact-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 .date-inputs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
@@ -284,13 +362,15 @@ body {
     width: 100%;
     background: #2C5530;
     color: white;
-    padding: 1rem;
+    padding: 1.2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-/* Футер */
+/* 🔥 ФУТЕР ДЛЯ МОБИЛЬНЫХ */
 .footer {
     background: #2C5530;
     color: white;
@@ -298,7 +378,13 @@ body {
     text-align: center;
 }
 
-/* Модальное окно */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 🔥 МОДАЛЬНОЕ ОКНО ДЛЯ МОБИЛЬНЫХ */
 .modal {
     display: none;
     position: fixed;
@@ -308,46 +394,55 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
+    padding: 20px;
 }
 
 .modal-content {
     background-color: white;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
+    border-radius: 15px;
+    width: 95%;
+    max-width: 400px;
     text-align: center;
+    position: relative;
 }
 
 .close {
-    float: right;
+    position: absolute;
+    top: 15px;
+    right: 20px;
     font-size: 2rem;
     cursor: pointer;
 }
 
 .modal-phone {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: #2C5530;
     text-decoration: none;
     display: block;
     margin: 1rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
 }
 
 .modal-buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 1rem;
-    justify-content: center;
     margin-top: 1rem;
 }
 
 .whatsapp-btn, .telegram-btn {
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
+    padding: 1rem;
+    border-radius: 8px;
     text-decoration: none;
     color: white;
     font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
 }
 
 .whatsapp-btn {
@@ -358,16 +453,10 @@ body {
     background: #0088cc;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    
-    .nav {
-        flex-wrap: wrap;
-        justify-content: center;
+/* 🔥 МЕДИА-ЗАПРОСЫ ДЛЯ ПЛАНШЕТОВ */
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20px;
     }
     
     .hero-title {
@@ -375,17 +464,132 @@ body {
     }
     
     .hero-features {
-        flex-direction: column;
-        gap: 1rem;
+        grid-template-columns: repeat(4, 1fr);
     }
     
-    .about-content,
-    .location-content,
-    .contact-content {
-        grid-template-columns: 1fr;
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .details-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .location-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-content {
+        flex-direction: row;
+    }
+    
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .modal-buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* 🔥 МЕДИА-ЗАПРОСЫ ДЛЯ ДЕСКТОПОВ */
+@media (min-width: 1024px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+    
+    .nav {
+        display: flex;
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    
+    .about-content {
+        flex-direction: row;
+    }
+    
+    .location-content {
+        flex-direction: row;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .amenities-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .location-features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 🔥 ДОПОЛНИТЕЛЬНЫЕ УЛУЧШЕНИЯ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 767px) {
+    /* Улучшаем читаемость текстов */
+    .seo-text h3 {
+        font-size: 1.3rem;
+        margin: 1.5rem 0 1rem 0;
+    }
+    
+    .seo-text ul {
+        padding-left: 1.2rem;
+    }
+    
+    .seo-text li {
+        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    /* Улучшаем формы */
+    input, textarea {
+        font-size: 16px !important; /* Убираем zoom в iOS */
+    }
+    
+    /* Улучшаем кнопки */
+    .cta-button, .contact-form button {
+        padding: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    /* Улучшаем отступы */
+    section {
+        padding: 2rem 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+/* 🔥 ИСПРАВЛЕНИЯ ДЛЯ IOS */
+@supports (-webkit-touch-callout: none) {
+    .hero {
+        height: -webkit-fill-available;
+    }
+}
+
+/* 🔥 УЛУЧШЕНИЯ ДЛЯ TOUCH-ЭКРАНОВ */
+@media (hover: none) and (pointer: coarse) {
+    .cta-button, .contact-form button {
+        min-height: 44px; /* Минимальный размер для touch */
+    }
+    
+    .nav-link, .phone-link {
+        padding: 10px 5px;
     }
 }
